@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt="" width="32" height="32"><span>Pustaka</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="dashboard.html" aria-current="page">Dashboard</a>
+    <a href="stok.html">Katalog</a>
+    <a href="checkout.html">Pemesanan</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="user"><span id="namaUser"></span><button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button></div>
+</header>
+<main class="container">
+  <section class="hero">
+    <p id="greeting" class="hero-greet">Halo!</p>
+    <h1 id="heroNama">Selamat datang</h1>
+    <p class="muted" id="jam"></p>
+  </section>
+
+  <section aria-labelledby="hMenu">
+    <h2 id="hMenu" class="sr-only">Menu utama</h2>
+    <div class="menu-grid">
+      <a class="menu-card" href="stok.html"><strong>Informasi Stok / Katalog</strong><span>Lihat dan tambah stok buku.</span></a>
+      <a class="menu-card" href="tracking.html"><strong>Tracking Pengiriman</strong><span>Cari status paket dengan nomor DO.</span></a>
+      <a class="menu-card" href="checkout.html"><strong>Laporan Pemesanan</strong><span>Buat dan ubah pesanan pelanggan.</span></a>
+      <a class="menu-card" href="riwayat.html"><strong>History Transaksi</strong><span>Daftar transaksi dan total penjualan.</span></a>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Pengiriman | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="tracking">
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt="" width="32" height="32"><span>Pustaka</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="stok.html">Katalog</a>
+    <a href="checkout.html">Pemesanan</a>
+    <a href="tracking.html" aria-current="page">Tracking</a>
+    <a href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="user"><span id="namaUser"></span><button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button></div>
+</header>
+<main class="container narrow">
+  <h1>Informasi Pengiriman</h1>
+  <section class="card" aria-labelledby="hCari">
+    <h2 id="hCari" class="sr-only">Cari nomor DO</h2>
+    <form id="formTrack" class="inline-form" novalidate>
+      <div class="field grow"><label for="noDo">Nomor Delivery Order</label>
+        <input type="text" id="noDo" placeholder="Contoh: DO-2026-0001" autocomplete="off">
+        <span class="error" role="alert"></span></div>
+      <div class="field align-end"><button type="submit" class="btn btn-primary">Cari</button></div>
+    </form>
+  </section>
+
+  <section id="hasil" class="card" hidden aria-live="polite">
+    <div class="card-head">
+      <div><p class="muted" id="hNo"></p><h2 id="hNama"></h2></div>
+      <span id="hStatus" class="badge badge-status"></span>
+    </div>
+    <div class="progress" role="progressbar" aria-label="Progres pengiriman" aria-valuemin="0" aria-valuemax="100"><div id="bar"></div></div>
+    <ol id="langkah" class="steps"></ol>
+    <dl class="detail">
+      <div><dt>Ekspedisi</dt><dd id="hEkspedisi"></dd></div>
+      <div><dt>Tanggal kirim</dt><dd id="hTanggal"></dd></div>
+      <div><dt>Jenis paket</dt><dd id="hPaket"></dd></div>
+      <div><dt>Total pembayaran</dt><dd id="hTotal"></dd></div>
+    </dl>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

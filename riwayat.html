@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History Transaksi | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="riwayat">
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt="" width="32" height="32"><span>Pustaka</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="stok.html">Katalog</a>
+    <a href="checkout.html">Pemesanan</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="riwayat.html" aria-current="page">Riwayat</a>
+  </nav>
+  <div class="user"><span id="namaUser"></span><button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button></div>
+</header>
+<main class="container">
+  <h1>History Transaksi</h1>
+  <section class="stats" aria-label="Ringkasan penjualan">
+    <div class="card stat"><span class="muted">Jumlah transaksi</span><strong id="stJumlah">0</strong></div>
+    <div class="card stat"><span class="muted">Total penjualan</span><strong id="stTotal">Rp0</strong></div>
+    <div class="card stat"><span class="muted">Sedang dikirim</span><strong id="stKirim">0</strong></div>
+  </section>
+  <section class="card" aria-labelledby="hRw">
+    <h2 id="hRw">Daftar transaksi</h2>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr-only">Riwayat transaksi</caption>
+        <thead><tr><th scope="col">No. DO</th><th scope="col">Tanggal</th><th scope="col">Pemesan</th><th scope="col">Ekspedisi</th><th scope="col" class="num">Total</th><th scope="col">Status</th><th scope="col">Aksi</th></tr></thead>
+        <tbody id="tbodyRw"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

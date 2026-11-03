@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pemesanan | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt="" width="32" height="32"><span>Pustaka</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="stok.html">Katalog</a>
+    <a href="checkout.html" aria-current="page">Pemesanan</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="user"><span id="namaUser"></span><button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button></div>
+</header>
+<main class="container">
+  <h1>Pemesanan Buku</h1>
+  <div class="two-col">
+    <div>
+      <section class="card" aria-labelledby="hItem">
+        <h2 id="hItem">Pilih buku</h2>
+        <div class="inline-form">
+          <div class="field grow"><label for="pilihBuku">Buku</label><select id="pilihBuku"></select></div>
+          <div class="field"><label for="jumlah">Jumlah</label><input type="number" id="jumlah" min="1" value="1"></div>
+          <div class="field align-end"><button type="button" id="btnTambah" class="btn btn-primary">Tambah</button></div>
+        </div>
+        <span class="error" id="errItem" role="alert"></span>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Keranjang pemesanan</caption>
+            <thead><tr><th scope="col">Buku</th><th scope="col" class="num">Harga</th><th scope="col">Jumlah</th><th scope="col" class="num">Subtotal</th><th scope="col">Aksi</th></tr></thead>
+            <tbody id="tbodyCart"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="hPemesan">
+        <h2 id="hPemesan">Data pemesan &amp; pembayaran</h2>
+        <form id="formCheckout" class="grid-form" novalidate>
+          <div class="field"><label for="nama">Nama pemesan</label><input type="text" id="nama"><span class="error" role="alert"></span></div>
+          <div class="field"><label for="emailP">Email</label><input type="email" id="emailP"><span class="error" role="alert"></span></div>
+          <div class="field"><label for="telp">No. telepon</label><input type="tel" id="telp" placeholder="08123456789"><span class="error" role="alert"></span></div>
+          <div class="field"><label for="ekspedisi">Ekspedisi</label><select id="ekspedisi"></select><span class="error" role="alert"></span></div>
+          <div class="field"><label for="paket">Jenis paket</label>
+            <select id="paket"><option value="">Pilih paket</option><option value="Reguler">Reguler</option><option value="Express">Express (+Rp10.000)</option></select><span class="error" role="alert"></span></div>
+          <div class="field"><label for="bayar">Metode pembayaran</label>
+            <select id="bayar"><option value="">Pilih pembayaran</option><option>Transfer Bank</option><option>Kartu Kredit</option><option>E-Wallet</option><option>COD (Bayar di tempat)</option></select><span class="error" role="alert"></span></div>
+          <div class="field span-2"><label for="alamat">Alamat pengiriman</label><textarea id="alamat" rows="3"></textarea><span class="error" role="alert"></span></div>
+          <div class="field span-2"><button type="submit" class="btn btn-primary btn-block">Buat pesanan</button></div>
+        </form>
+      </section>
+    </div>
+
+    <aside class="card summary" aria-labelledby="hRingkas">
+      <h2 id="hRingkas">Ringkasan</h2>
+      <dl>
+        <div><dt>Subtotal buku</dt><dd id="sumSub">Rp0</dd></div>
+        <div><dt>Ongkos kirim</dt><dd id="sumOngkir">Rp0</dd></div>
+        <div class="total"><dt>Total bayar</dt><dd id="sumTotal">Rp0</dd></div>
+      </dl>
+    </aside>
+  </div>
+</main>
+
+<dialog id="dlgSukses" aria-labelledby="tSukses">
+  <h2 id="tSukses">Pesanan berhasil dibuat</h2>
+  <p>Nomor Delivery Order Anda:</p>
+  <p class="do-number" id="noDO"></p>
+  <div class="dialog-actions">
+    <button type="button" class="btn btn-ghost" data-close>Tutup</button>
+    <a id="linkTrack" class="btn btn-primary" href="tracking.html">Lacak pesanan</a>
+  </div>
+</dialog>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

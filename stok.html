@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katalog & Stok | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stok">
+<header class="topbar">
+  <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt="" width="32" height="32"><span>Pustaka</span></a>
+  <nav aria-label="Navigasi utama">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="stok.html" aria-current="page">Katalog</a>
+    <a href="checkout.html">Pemesanan</a>
+    <a href="tracking.html">Tracking</a>
+    <a href="riwayat.html">Riwayat</a>
+  </nav>
+  <div class="user"><span id="namaUser"></span><button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button></div>
+</header>
+<main class="container">
+  <h1>Informasi Stok / Katalog</h1>
+
+  <section class="card" aria-labelledby="hTambah">
+    <h2 id="hTambah">Tambah stok baru</h2>
+    <form id="formStok" class="grid-form" novalidate>
+      <div class="field"><label for="sJudul">Judul buku</label><input type="text" id="sJudul"><span class="error" role="alert"></span></div>
+      <div class="field"><label for="sPenulis">Penulis</label><input type="text" id="sPenulis"><span class="error" role="alert"></span></div>
+      <div class="field"><label for="sKategori">Kategori</label>
+        <select id="sKategori"><option value="">Pilih kategori</option><option>Teknologi</option><option>Bisnis</option><option>Fiksi</option><option>Sains</option><option>Desain</option></select>
+        <span class="error" role="alert"></span></div>
+      <div class="field"><label for="sHarga">Harga (Rp)</label><input type="number" id="sHarga" min="1000" step="500"><span class="error" role="alert"></span></div>
+      <div class="field"><label for="sStok">Jumlah stok</label><input type="number" id="sStok" min="1"><span class="error" role="alert"></span></div>
+      <div class="field align-end"><button type="submit" class="btn btn-primary">Tambah ke tabel</button></div>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="hTabel">
+    <div class="card-head">
+      <h2 id="hTabel">Daftar buku <span id="jumlahBuku" class="badge"></span></h2>
+      <label class="sr-only" for="cari">Cari judul atau penulis</label>
+      <input type="search" id="cari" placeholder="Cari judul atau penulis">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <caption class="sr-only">Katalog buku dan stok</caption>
+        <thead><tr><th scope="col">Kode</th><th scope="col">Sampul</th><th scope="col">Judul</th><th scope="col">Penulis</th><th scope="col">Kategori</th><th scope="col" class="num">Harga</th><th scope="col" class="num">Stok</th><th scope="col">Aksi</th></tr></thead>
+        <tbody id="tbodyStok"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

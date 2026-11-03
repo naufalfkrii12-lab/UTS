@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk | Toko Buku Pustaka</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+<main class="login">
+  <section class="login-art" aria-hidden="true">
+    <div class="spines">
+      <i style="--h:72%;--c:#E3A008"></i><i style="--h:88%;--c:#F2EFE6"></i><i style="--h:60%;--c:#0A4F44"></i>
+      <i style="--h:94%;--c:#E3A008"></i><i style="--h:68%;--c:#8FC4B7"></i><i style="--h:82%;--c:#F2EFE6"></i>
+      <i style="--h:76%;--c:#0A4F44"></i><i style="--h:90%;--c:#E3A008"></i>
+    </div>
+    <p class="art-title">Toko Buku Pustaka</p>
+  </section>
+
+  <section class="login-panel">
+    <h1>Masuk ke akun Anda</h1>
+    <p class="muted">Kelola stok, pesanan, dan pengiriman buku dalam satu tempat.</p>
+
+    <form id="formLogin" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="username" placeholder="nama@email.com">
+        <span class="error" role="alert"></span>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password">
+        <span class="error" role="alert"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+
+    <div class="login-links">
+      <button type="button" class="link-btn" data-open="dlgLupa">Lupa Password</button>
+      <button type="button" class="link-btn" data-open="dlgDaftar">Daftar</button>
+    </div>
+    <p class="hint">Akun demo: <code>admin@tokobuku.id</code> / <code>admin123</code></p>
+  </section>
+</main>
+
+<dialog id="dlgLupa" aria-labelledby="tLupa">
+  <form id="formLupa" novalidate>
+    <h2 id="tLupa">Lupa Password</h2>
+    <p class="muted">Masukkan email terdaftar. Kami kirim tautan untuk membuat password baru.</p>
+    <div class="field">
+      <label for="emailLupa">Email terdaftar</label>
+      <input type="email" id="emailLupa">
+      <span class="error" role="alert"></span>
+    </div>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-ghost" data-close>Batal</button>
+      <button type="submit" class="btn btn-primary">Kirim tautan</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlgDaftar" aria-labelledby="tDaftar">
+  <form id="formDaftar" novalidate>
+    <h2 id="tDaftar">Daftar akun baru</h2>
+    <div class="field"><label for="dNama">Nama lengkap</label><input type="text" id="dNama"><span class="error" role="alert"></span></div>
+    <div class="field"><label for="dEmail">Email</label><input type="email" id="dEmail"><span class="error" role="alert"></span></div>
+    <div class="field"><label for="dPass">Password (minimal 6 karakter)</label><input type="password" id="dPass" autocomplete="new-password"><span class="error" role="alert"></span></div>
+    <div class="field"><label for="dPass2">Ulangi password</label><input type="password" id="dPass2" autocomplete="new-password"><span class="error" role="alert"></span></div>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-ghost" data-close>Batal</button>
+      <button type="submit" class="btn btn-primary">Buat akun</button>
+    </div>
+  </form>
+</dialog>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
