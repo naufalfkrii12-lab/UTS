@@ -1,0 +1,78 @@
+# Toko Buku Pustaka
+
+Tugas UTS Pemrograman Web 1 — aplikasi web sederhana untuk mengelola stok, pemesanan, dan pengiriman buku. Dibangun dengan HTML, CSS, dan JavaScript murni (tanpa framework dan tanpa backend).
+
+> **Identitas**
+> Nama: _(isi nama)_
+> NIM: _(isi NIM)_
+> Kelas / Mata kuliah: _(isi kelas)_
+
+## Cara menjalankan
+
+1. Ekstrak file zip.
+2. Buka `index.html` di browser (Chrome, Edge, atau Firefox). Tidak perlu instalasi atau server.
+3. Login dengan akun demo:
+
+| Nama | Email | Password |
+| --- | --- | --- |
+| Admin Toko | `admin@tokobuku.id` | `admin123` |
+| Budi Santoso | `budi@tokobuku.id` | `budi123` |
+
+Akun baru juga bisa dibuat lewat tombol **Daftar** di halaman login.
+
+> Font diambil dari Google Fonts, jadi butuh koneksi internet agar tampilan font sesuai. Tanpa internet, halaman tetap berfungsi dengan font bawaan browser.
+
+## Fitur
+
+| Halaman | File | Fungsi |
+| --- | --- | --- |
+| Login | `index.html` | Validasi email/password, modal **Lupa Password** (simulasi) dan **Daftar** akun baru |
+| Dashboard | `dashboard.html` | Sapaan sesuai jam, tanggal dan waktu, menu ke semua fitur |
+| Katalog / Stok | `stok.html` | Lihat daftar buku, cari berdasarkan judul atau penulis, tambah buku baru, hapus buku. Stok di bawah 10 ditandai menipis |
+| Pemesanan | `checkout.html` | Pilih buku ke keranjang, ubah jumlah (dibatasi stok), pilih ekspedisi, paket Reguler/Express, metode bayar, lalu buat pesanan dan dapat nomor DO |
+| Tracking | `tracking.html` | Cari status pengiriman dengan nomor DO, lengkap dengan progress bar dan tahapan |
+| Riwayat | `riwayat.html` | Daftar transaksi, jumlah transaksi, total penjualan, dan jumlah paket yang sedang dikirim |
+
+`login.html` hanya mengarahkan ke `index.html`.
+
+### Hal yang bisa dicoba
+
+- **Tracking:** gunakan nomor DO contoh `DO-2026-0001` sampai `DO-2026-0004`, atau nomor dari pesanan yang baru dibuat.
+- **Pemesanan:** setelah pesanan dibuat, stok buku otomatis berkurang dan transaksi muncul di Riwayat.
+- **Ongkos kirim:** tarif ekspedisi + Rp10.000 jika memilih paket Express.
+- **Validasi form:** semua form memiliki pesan error di bawah input (email, password minimal 6 karakter, nomor telepon, alamat minimal 10 karakter, dll).
+
+## Struktur folder
+
+```
+tugas-uts-web1/
+├── index.html        # Halaman login
+├── login.html        # Redirect ke index.html
+├── dashboard.html
+├── stok.html
+├── checkout.html
+├── tracking.html
+├── riwayat.html
+├── css/
+│   └── style.css     # Seluruh gaya tampilan
+├── js/
+│   ├── data.js       # Data dummy (buku, pengguna, ekspedisi, tracking) dalam format JSON
+│   └── script.js     # Logika semua halaman (dipilih lewat atribut data-page pada <body>)
+├── img/              # Sampul buku (buku1.png – buku8.png)
+└── assets/
+    └── logo.png      # Logo dan favicon
+```
+
+## Cara kerja data
+
+Tidak ada database. Data awal ada di `js/data.js`, sedangkan perubahan dari pengguna disimpan di browser:
+
+- `localStorage`: `katalog` (stok buku), `riwayat` (pesanan baru), `penggunaBaru` (akun yang didaftarkan)
+- `sessionStorage`: `sesi` (user yang sedang login; hilang saat tab ditutup)
+
+Untuk mengembalikan data ke kondisi awal, hapus data situs lewat DevTools (Application → Local Storage → Clear).
+
+## Catatan
+
+- Password disimpan apa adanya di browser karena ini hanya simulasi untuk tugas kuliah. Aplikasi nyata harus memakai backend dan hashing.
+- Halaman selain login diproteksi: jika belum login, pengguna dialihkan ke `index.html`.
